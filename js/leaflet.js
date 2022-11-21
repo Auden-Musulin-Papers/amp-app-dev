@@ -12,35 +12,27 @@ function leafletDatatable(table) {
         zIndex: 1
     }).addTo(mymap);
 
-    
+    mymap.addControl(new L.Control.Fullscreen());
     
     // create labels for each coordinate existing lat long coordinate
     var markers = L.markerClusterGroup();
 
     var objects = new L.GeoJSON.AJAX(["geo/listplace.geojson"], {onEachFeature:popUp});
-    objects.on('data:loaded', function () {
-        markers.addLayer(objects);
-        mymap.addLayer(markers);
-        try {
-            mymap.fitBounds(markers.getBounds());
-        } catch (err) {
-            console.log(err);
-        }
-    });
-
-    var baseLayers = {
-        'Map': tiles
-    };
-    var overlays = {
-        "All Places": objects
-    };
-    var layerControl = L.control.layers(baseLayers, overlays).addTo(mymap);
+    // objects.on('data:loaded', function () {
+    //     markers.addLayer(objects);
+    //     mymap.addLayer(markers);
+    //     try {
+    //         mymap.fitBounds(markers.getBounds());
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // });
                
     // variable id #tableOne must match table id in html
     var tableOne = $('#' + table)
     .DataTable({
          "language": {
-            "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/German.json"
+            "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/English.json"
              },
          dom: 'fpBirtp',
         buttons:['copy', 'excel', 'pdf'],
@@ -53,7 +45,7 @@ function leafletDatatable(table) {
     
     tableOne.on('search.dt', function(e) {
         var value = $('.dataTables_filter input').val();
-        if (e && value.length != 0) {
+        if (value.length != 0) {
             markers.clearLayers();
             getCoordinates();
             mymap.addLayer(markers);
@@ -62,7 +54,7 @@ function leafletDatatable(table) {
             } catch (err) {
                 console.log(err);
             }
-        } else if (e && value.length == 0) {
+        } else {
             markers.clearLayers();
             var objects = new L.GeoJSON.AJAX(["geo/listplace.geojson"], {onEachFeature:popUp});
             objects.on('data:loaded', function () {
@@ -88,6 +80,14 @@ function leafletDatatable(table) {
         }
     });
 
+    var baseLayers = {
+        'Map': tiles
+    };
+    var overlays = {
+        "All Places": objects
+    };
+    var layerControl = L.control.layers(baseLayers, overlays).addTo(mymap);
+
     $("#tableReload-wrapper").on('click', function() {
         var objects = new L.GeoJSON.AJAX(["geo/listplace.geojson"], {onEachFeature:popUp});
         markers.clearLayers();
@@ -108,7 +108,7 @@ function leafletDatatable(table) {
             var long = node.getAttribute('long');
             var id = node.getAttribute('id');
             var country = node.getAttribute('data-country');
-            var place = `Placename: ${node.getAttribute('subtitle')} ,${country}<br/><a href="${id}.html">Read more</a>`;
+            var place = `Placename: ${node.getAttribute('subtitle')}, ${country}<br/><a href="${id}.html">Read more</a>`;
             markers.addLayer(L.marker([lat,long]).bindPopup(place));
         });       
     }

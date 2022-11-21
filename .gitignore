@@ -14,6 +14,7 @@ dl_imprint.sh
 dl_saxon.sh
 dl_staticsearch.sh
 fetch_data.sh
+fetch_data_entities.sh
 script.sh
 ss_config.xml
 staticSearch_listDir.sh

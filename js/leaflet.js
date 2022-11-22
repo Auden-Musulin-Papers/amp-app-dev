@@ -14,7 +14,7 @@ function leafletDatatable(table) {
 
     mymap.addControl(new L.Control.Fullscreen());
     
-    // create labels for each coordinate existing lat long coordinate
+    /* create labels for each coordinate existing lat long coordinate */
     var markers = L.markerClusterGroup();
 
     var objects = new L.GeoJSON.AJAX(["geo/listplace.geojson"], {onEachFeature:popUp});
@@ -43,7 +43,7 @@ function leafletDatatable(table) {
         keepConditions: true
     });
     
-    tableOne.on('search.dt', function(e) {
+    tableOne.on('search.dt', function() {
         var value = $('.dataTables_filter input').val();
         if (value.length != 0) {
             markers.clearLayers();
@@ -84,7 +84,8 @@ function leafletDatatable(table) {
         'Map': tiles
     };
     var overlays = {
-        "All Places": objects
+        "Places Cluster": markers,
+        "Places": objects
     };
     var layerControl = L.control.layers(baseLayers, overlays).addTo(mymap);
 

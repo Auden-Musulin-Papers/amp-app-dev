@@ -17,6 +17,4 @@ echo "build app"
 ant
 echo "build static search"
 ./build_index.sh
-echo "start python server"
-python -m http.server
 echo "done"

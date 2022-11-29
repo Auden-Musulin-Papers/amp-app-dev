@@ -22,3 +22,5 @@ stopwords.txt
 words.txt
 
 /env
+denormalize.sh
+requirements.txt

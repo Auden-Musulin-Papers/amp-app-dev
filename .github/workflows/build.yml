@@ -20,7 +20,10 @@ jobs:
       uses: actions/checkout@v2
     - name: Fetch data
       run: |
-        ./fetch_data.sh
+        ./fetch_data_app.sh
+    - name: Fetch data
+      run: |
+        ./fetch_ampdata_entities.sh
     - name: Fetch data entities
       run: |
         ./fetch_data_entities.sh

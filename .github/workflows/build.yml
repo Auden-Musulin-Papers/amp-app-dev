@@ -7,17 +7,20 @@ on:
 
 jobs:
   build_pages:
-    name: Publish Development Edition as GitHub Pages Website
+    name: Publish Edition as GitHub Pages Website
     runs-on: ubuntu-latest
+    env:
+      ANT_OPTS: -Xmx5g
+      TYPESENSE_HOST: typesense.acdh-dev.oeaw.ac.at
+      TYPESENSE_PORT: 443
+      TYPESENSE_PROTOCOL: https
+      TYPESENSE_API_KEY: ${{secrets.TYPESENSE_API_KEY}}
     steps:
     - name: Perform Checkout
       uses: actions/checkout@v2
     - name: Fetch data
       run: |
-        ./fetch_data_app.sh
-    - name: Fetch data
-      run: |
-        ./fetch_ampdata_entities.sh
+        ./fetch_data.sh
     - name: Fetch data entities
       run: |
         ./fetch_data_entities.sh
@@ -34,15 +37,15 @@ jobs:
         ant -f copy-task.xml
     - name: Add attributes
       run: |
-        pip install acdh-tei-pyutils
+        pip install -r requirements.txt
         ./attributes.sh
         ./denormalize.sh
     - name: Build
       run: |
         ant
-    - name: Build Index
+    - name: Build Typesense Index
       run: |
-        ./build_index.sh
+        python make_ts_index.py
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:

@@ -30,7 +30,8 @@
             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
             g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
           })();
-        </script><link rel="stylesheet" type="text/css" href="css/analytics.css" /><script src="https://code.highcharts.com/highcharts.js"></script><script src="https://code.highcharts.com/modules/data.js"></script><script src="https://code.highcharts.com/modules/series-label.js"></script><script src="https://code.highcharts.com/modules/exporting.js"></script><script src="https://code.highcharts.com/modules/export-data.js"></script><script src="https://code.highcharts.com/modules/accessibility.js"></script></head>
+        </script><link rel="stylesheet" type="text/css" href="css/analytics.css" />
+      <link rel="stylesheet" type="text/css" href="css/network.css" /><script src="https://code.highcharts.com/highcharts.js"></script><script src="https://code.highcharts.com/modules/data.js"></script><script src="https://code.highcharts.com/modules/series-label.js"></script><script src="https://code.highcharts.com/modules/exporting.js"></script><script src="https://code.highcharts.com/modules/export-data.js"></script><script src="https://code.highcharts.com/modules/accessibility.js"></script><script src="https://code.highcharts.com/modules/networkgraph.js"></script></head>
    <body class="page">
       <div class="hfeed site" id="page">
          <div class="wrapper-fluid wrapper-navbar sticky-navbar hide-reading" id="wrapper-navbar"><a class="skip-link screen-reader-text sr-only" href="#content">Skip to content</a><nav class="navbar navbar-expand-lg navbar-light">
@@ -76,6 +77,16 @@
                <p class="highcharts-description">
                   Chart showing data loaded dynamically. The individual data points can
                   be hovered to display more information.
+                  </p>
+            </figure>
+            <figure class="highcharts-figure">
+               <div id="container-network"></div>
+               <p class="highcharts-description">
+                  This directed graph shows an example of a network graph, where
+                  the nodes represent persons and their relationships with each other. 
+                  A relationship is defined by an unique ID like "relationship_id_1" that connects
+                  two individuals. The IDs have different types like "is_lover_of" to describe
+                  the nature of the relationship. 
                   </p>
             </figure>
          </div>
@@ -163,5 +174,5 @@
             </div>
          </div>
          <div class="footer-imprint-bar hide-reading" id="wrapper-footer-secondary" style="text-align:center; padding:0.4rem 0; font-size: 0.9rem;"><span>© Copyright OEAW</span><a style="margin: 0 1em 0 1em;" title="CC-BY 4.0" target="_blank" href="https://creativecommons.org/licenses/by/4.0"><img style="max-width: 100px; height:auto;" alt="CC-BY 4.0 Logo" src="images/cc-by.svg" /></a><a href="imprint.html">Impressum/Imprint</a></div>
-      </div><script src="js/sender-receiver-graph.js"></script></body>
+      </div><script src="js/sender-receiver-graph.js"></script><script src="js/network.js"></script></body>
 </html>

@@ -46,9 +46,9 @@ jobs:
     - name: Build
       run: |
         ant
-    - name: Build Typesense Index
-      run: |
-        python make_ts_index.py
+    # - name: Build Typesense Index
+    #   run: |
+    #     python make_ts_index.py
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:

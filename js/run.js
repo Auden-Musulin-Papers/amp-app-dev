@@ -25,8 +25,11 @@ var editor = new LoadEditor({
         title: "Underlined",
         color: "blue",
         html_class: "hi-underline",
-        css_class: ["underline", "italic"],
-        hide: false,
+        css_class: "underline",
+        hide: {
+          hidden: false,
+          class: "hi-underline",
+        },
         chg_citation: "citation-url",
         features: {
           all: false,
@@ -57,7 +60,10 @@ var editor = new LoadEditor({
         color: "grey",
         html_class: "abbr",
         css_class: "unclear",
-        hide: false,
+        hide: {
+          hidden: false,
+          class: "abbr",
+        },
         chg_citation: "citation-url",
         features: {
           all: false,
@@ -71,7 +77,10 @@ var editor = new LoadEditor({
         color: "grey",
         html_class: "undefined",
         css_class: "undefined",
-        hide: false,
+        hide: {
+          hidden: false,
+          class: "undefined",
+        },
         chg_citation: "citation-url",
         features: {
           all: true,
@@ -86,6 +95,10 @@ var editor = new LoadEditor({
         html_class: "undefined",
         css_class: "undefined",
         chg_citation: "citation-url",
+        hide: {
+          hidden: false,
+          class: "undefined",
+        },
         features: {
           all: true,
           class: "features-2",
@@ -115,7 +128,7 @@ var editor = new LoadEditor({
         css_class: "plc",
         hide: {
           hidden: true,
-          class: "places-sub",
+          class: "places .entity",
         },
         chg_citation: "citation-url",
         features: {
@@ -132,7 +145,7 @@ var editor = new LoadEditor({
         chg_citation: "citation-url",
         hide: {
           hidden: true,
-          class: "wrk-sub",
+          class: "wrk .entity",
         },
         features: {
           all: false,
@@ -147,7 +160,7 @@ var editor = new LoadEditor({
         css_class: "org",
         hide: {
           hidden: true,
-          class: "orgs-sub",
+          class: "orgs .entity",
         },
         chg_citation: "citation-url",
         features: {
@@ -280,7 +293,7 @@ var editor = new LoadEditor({
     name: "load images in OSD viewer",
     opt: "image-loader",
     title: "Faksimiles",
-    urlparam: "page",
+    urlparam: "tab",
     chg_citation: "citation-url",
     pag_link: ".pagination .nav-tabs .nav-item .nav-link",
     pag_tab: ".pagination-tab.tab-pane",
@@ -295,10 +308,10 @@ var editor = new LoadEditor({
     bootstrap_class: "show",
   },
   ep: {
-    name: "Page Pagination",
+    name: "Tab Pagination",
     opt: "edition-pagination",
-    title: "Page Pagination",
-    urlparam: "page",
+    title: "Tab Pagination",
+    urlparam: "tab",
     chg_citation: "citation-url",
     pag_link: ".pagination-link",
     pag_tab: ".pagination-tab.tab-pane",

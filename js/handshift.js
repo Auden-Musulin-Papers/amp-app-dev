@@ -12,13 +12,18 @@ function handShift() {
       newNode.appendChild(el);
     });
     parentP.insertBefore(newNode, opt);
-    opt.remove();
+    // opt.remove();
   });
 }
 
+/* credits to: https://stackoverflow.com/questions/4378784/
+how-to-find-all-siblings-of-the-currently-selected-dom-object */
 function getNextSiblings(elem) {
   var sibs = [];
   while ((elem = elem.nextSibling)) {
+    if (elem.tagName == "SPAN" && elem.getAttribute("class") == "handShift") {
+      break;
+    }
     sibs.push(elem);
   }
   return sibs;

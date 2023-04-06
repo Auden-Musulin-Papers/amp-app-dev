@@ -1,8 +1,8 @@
 name: Fetch build and publish
 
 on:
-  schedule:
-  - cron: "20 */12 * * *"
+  # schedule:
+  # - cron: "20 */12 * * *"
   workflow_dispatch:
 
 jobs:

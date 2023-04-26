@@ -40,7 +40,7 @@ jobs:
         ant -f build_app/ant/copy-task.xml
     - name: Add attributes
       run: |
-        pip install -r requirements.txt
+        pip install -r build_app/python/requirements.txt
         ./build_app/shell/attributes.sh
         ./build_app/shell/denormalize.sh
     - name: Build

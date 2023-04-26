@@ -23,7 +23,7 @@ jobs:
         ./fetch_data_app.sh
     - name: Fetch data
       run: |
-        ./build_app/shell/fetch_ampdata_entities.sh
+        ./fetch_ampdata_entities.sh
     - name: Fetch data entities
       run: |
         ./build_app/shell/fetch_data_entities.sh

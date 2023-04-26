@@ -1,8 +1,8 @@
 name: Fetch build and publish
 
 on:
-  schedule:
-  - cron: "20 */12 * * *"
+  # schedule:
+  # - cron: "20 */12 * * *"
   workflow_dispatch:
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
       TYPESENSE_API_KEY: ${{secrets.TYPESENSE_API_KEY}}
     steps:
     - name: Perform Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Fetch data
       run: |
         ./fetch_data_app.sh

@@ -7,5 +7,6 @@ unzip dev
 mv amp-app-dev/*.* ./
 mv amp-app-dev/xslt/ ./xslt
 mv amp-app-dev/html/ ./html
+mv amp-app-dev/build_app/ ./build_app
 rm -rf amp-app-dev
 rm dev.zip

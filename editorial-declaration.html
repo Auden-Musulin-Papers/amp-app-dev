@@ -80,7 +80,8 @@
                               
                               <ul class="bulleted">
                                  
-                                 <li data-no="">one view per page recto and verso</li>
+                                 <li data-no="">one view per page recto and verso (with the exception of photographs glued onto pages
+                                    of photo albums)</li>
                                  
                                  <li data-no="">vertical arrangements of texts that partially represent the original layout</li>
                                  
@@ -110,6 +111,8 @@
                                  
                                  <li data-no="">indications of unclear characters, which cannot be transcribed with certainty</li>
                                  
+                                 <li data-no="">labeling of entities (persons, places, institutions, works, events)</li>
+                                 
                                  <li data-no="">choice of fonts and font sizes</li>
                                  
                                  <li data-no="">full-screen view</li>
@@ -132,7 +135,15 @@
                            On the website, images are provided through IIIF.</p>
                         
                         
-                        <h3>Transcription and Markup Guidelines of v0.1</h3>
+                        <h3>Disclaimer v0.3</h3>
+                        
+                        <p>The detail view of document transcripts and facsimiles is optimized for desktop display
+                           in Firefox and Chrome.</p>
+                        
+                        <p>The facsimile view is not yet optimized for the mobile version of the web application.</p>
+                        
+                        
+                        <h3>Transcription and Markup Guidelines of v0.3</h3>
                         
                         <p>Source transcriptions as encoded in TEI/XML represent the spelling, punctuation, and
                            revisions as they appear, aiming for minimal editorial intervention or interpretation.</p>                   
@@ -195,12 +206,16 @@
                                  <li data-no="3.4">For manuscripts, the length of spaces between words is regularized and represented
                                     as either single space or no space.</li>
                                  
-                                 <li data-no="3.5">For typescripts, the exact number of spaces within sentences is preserved (but not
-                                    before titles and page numbers) and marked up as &lt;space&gt; in XML.</li>
+                                 <li data-no="3.5">For typescripts, the exact number of spaces within sentences is preserved and marked
+                                    up as &lt;space&gt; in XML.</li>
                                  
-                                 <li data-no="3.6">Spaces that precede printed text are disregarded.</li>
+                                 <li data-no="3.6">Changes in the left-hand margins of typescripts are not marked up as indentations
+                                    (by means of &lt;space&gt;) if they appear to result from reinsertations of the sheets of
+                                    paper or resets of margins on the typewriter that do not appear meaningful.</li>
                                  
-                                 <li data-no="3.7">Blank lines between lines of writing are disregarded.</li>
+                                 <li data-no="3.7">Spaces that precede printed text are disregarded.</li>
+                                 
+                                 <li data-no="3.8">Blank lines between lines of writing are disregarded.</li>
                                  </ol>
                               </li>
                            </ol>
@@ -259,7 +274,7 @@
                                  <li data-no="7.1">Deletions of text are marked up as &lt;del&gt; in XML and can be represented on the web
                                     page.</li>
                                  
-                                 <li data-no="7.2">For overwritings in manuscripts and typescripts, we have accepted the orthographically
+                                 <li data-no="7.2">For revisions in manuscripts and typescripts, we have accepted the orthographically
                                     or grammatically accurate versions as corrections, even if the actual sequences of
                                     textual layers cannot be reconstructed.</li>
                                  
@@ -315,11 +330,14 @@
                            
                            <li data-no="9">Writing technologies
                               
-                              <li data-no="9.1">Writing technologies (handwriting, typewriting, print) are marked up by means of the
-                                 &lt;... hand="..."&gt; attribute in XML and are represented through different fonts on the
-                                 web page.</li>
-                              
-                              <li data-no="9.2">The &lt;handShift&gt; element indicates an immediate change of writing technologies.</li>
+                              <ol class="numbered">
+                                 
+                                 <li data-no="9.1">Writing technologies (handwriting, typewriting, print) are marked up by means of the
+                                    &lt;... hand="..."&gt; attribute in XML and are represented through different fonts on the
+                                    web page.</li>
+                                 
+                                 <li data-no="9.2">The &lt;handShift&gt; element indicates an immediate change of writing technologies.</li>
+                                 </ol>
                               </li>
                            </ol>
                         
@@ -387,7 +405,7 @@
                               </div>
                            </div>
                            <div class="col-lg-12 col-md-12 col-sm-12 py-2">
-                              <div class="flex-md-row mb-4 align-items-center" style="margin-bottom:.5em!important;"><a href="https://www.fwf.ac.at/en/"><img class="card-img-right flex-auto d-md-block" src="https://www.fwf.ac.at/fileadmin/files/Images/News_Presse/Presse/Logo/fwf-logo_var2.jpg" alt="FWF Der Wissenschaftsfond Logo" style="max-width: 180px; height: auto; margin-top:1em;" title="FWF Der Wissenschaftsfond" /></a></div>
+                              <div class="flex-md-row mb-4 align-items-center" style="margin-bottom:.5em!important;"><a href="https://www.fwf.ac.at/en/"><img class="card-img-right flex-auto d-md-block" src="https://www.fwf.ac.at/fileadmin/files/Images/News_Presse/Presse/Logo/Logo-D/FWF_Logo_Zusatz_Dunkelblau_RGB_DE.png" alt="FWF Der Wissenschaftsfond Logo" style="max-width: 250px; height: auto; margin-top:1em;" title="FWF Der Wissenschaftsfond" /></a></div>
                            </div>
                            <div class="col-lg-12 col-md-12 col-sm-12 py-2">
                               <div class="flex-md-row mb-4 align-items-center" style="margin-bottom:.5em!important; margin-left: -1em;"><a href="https://www.univie.ac.at/en/"><img class="card-img-right flex-auto d-md-block" src="https://communications.univie.ac.at/fileadmin/user_upload/d_oeffentlichkeitsarbeit/Logos/2016-02/Uni_Logo_2016.jpg" alt="Universität Wien Logo" style="max-width: 250px; height: auto; vertical-align: middle;" title="Universität Wien" /></a></div>

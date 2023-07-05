@@ -1,6 +1,7 @@
 /data
 /static-search
 /saxon
+/build_app
 
 /html
 /xslt

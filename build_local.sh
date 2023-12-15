@@ -4,7 +4,7 @@ echo "download app"
 ./fetch_data_app.sh
 
 echo "download data"
-./fetch_ampdata_entities.sh
+./fetch_data_data_dev.sh
 
 echo "download entities data"
 ./build_app/shell/fetch_data_entities.sh

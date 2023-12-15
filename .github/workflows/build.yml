@@ -18,13 +18,13 @@ jobs:
     steps:
     - name: Perform Checkout
       uses: actions/checkout@v3
-    - name: Fetch data
+    - name: Fetch amp-app
       run: |
         ./fetch_data_app.sh
-    - name: Fetch data
+    - name: Fetch amp-data
       run: |
-        ./fetch_ampdata_entities.sh
-    - name: Fetch data entities
+          ./fetch_data_data_dev.sh
+    - name: Fetch amp-entities
       run: |
         ./build_app/shell/fetch_data_entities.sh
     - name: Install Saxon, Ant and Fundament, staticSearch

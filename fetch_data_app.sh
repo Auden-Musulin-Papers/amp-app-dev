@@ -1,5 +1,8 @@
 # bin/bash
 
+rm -rf html
+rm -rf xslt
+rm -rf build_app
 rm amp-app-dev.zip
 rm -rf amp-app-dev
 wget https://github.com/Auden-Musulin-Papers/amp-app/archive/refs/heads/dev.zip

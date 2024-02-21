@@ -72,8 +72,9 @@
                <h3>Presentation of the Material</h3>
                
                <p>By default, the edited documents are presented in the form of a reading version with
-                  minor editing. Optionally, original text features, such as deletions, can be displayed,
-                  and users can modify presentation preferences.</p>                   
+                  minor editing. Optionally, original text features (such as deletions) can be displayed,
+                  and users can modify presentation preferences (including enabling/disabling display
+                  of entities, comments, and intertextuality information)..</p>                   
                
                <ul class="bulleted">
                   
@@ -96,10 +97,6 @@
                         <li data-no="">italics to represent originally underlined text</li>
                         
                         <li data-no="">indications of undecipherable characters (if not deleted)</li>
-                        
-                        <li data-no="">detailed editorial metadata</li>
-                        
-                        <li data-no="">correspondence metadata</li>
                         </ul>
                      </li>                          
                   </ul>
@@ -120,11 +117,17 @@
                         <li data-no="">editorial commentary, including information about responsibility and uncertainty (in
                            development)</li>
                         
+                        <li data-no="">intertextuality information (in development)</li>
+                        
                         <li data-no="">choice of fonts and font sizes</li>
                         
-                        <li data-no="">facsimiles displayed through a plugin viewer, with controls to adjust image size</li>
+                        <li data-no="">facsimiles displayed through a plugin viewer</li>
                         
                         <li data-no="">full-screen view</li>
+                        
+                        <li data-no="">detailed editorial metadata</li>
+                        
+                        <li data-no="">correspondence metadata</li>
                         </ul>
                      </li>                          
                   </ul>
@@ -152,7 +155,7 @@
                   lens (see https://amp.acdh.oeaw.ac.at/cv.html).</p>
                
                
-               <h3>Transcription and Markup Guidelines of v0.5.0</h3>
+               <h3>Transcription and Markup Guidelines amp-data v0.9.0</h3>
                
                <p>Source transcriptions as encoded in TEI/XML represent the spelling, punctuation, and,
                   partly, revisions as they appear, aiming for minimal editorial intervention or interpretation.</p>                   
@@ -221,7 +224,8 @@
                            approximative values of spaces have been indicated.</li>
                         
                         <li data-no="3.6">Indentations of typed lines (of poetry) without reference value in relation to the
-                           left-hand margin are marked up as &lt;space extent="undefined quantity of characters"&gt;.</li>
+                           left-hand margin are marked up as &lt;space extent="undefined quantity of characters"
+                           min="1" unit="char"&gt;.</li>
                         
                         <li data-no="3.7">Changes in the left-hand margins of typescripts are not marked up as indentations
                            (by means of &lt;space&gt;) if they appear to result from reinsertions of the sheets of
@@ -245,7 +249,9 @@
                            elements). Within structural elements, the TEI &lt;lb&gt; element represents standard line
                            spacing (most likely produced by operating the typewriter's carriage-return lever);
                            in between elements, spacing (possibly produced by means of operating the typewriter's
-                           variable line spacing knob) can vary, which is not represented in the markup.</li>
+                           variable line spacing knob) can vary, which is not represented in the markup. When
+                           prose paragraphs (&lt;p&gt;) are interrupted by page beginnings (&lt;pb&gt;), the continuing paragraph
+                           on the new page is marked up as &lt;p prev="true"&gt;.</li>
                         
                         <li data-no="4.2">For non-correspondence documents as well as for telegrams, aerograms, and postcards,
                            a non-specific container structure is currently used: the transcription of each document
@@ -253,15 +259,16 @@
                            of &lt;pb&gt;, &lt;p&gt;, and &lt;lg&gt; elements.</li>
                         
                         <li data-no="4.3">For correspondence documents, excluding telegrams, aerograms, and postcards, a specific
-                           and semantically more expressive TEI-conformant container structure is used. The most
-                           important structural elements are the following: &lt;div type="transcription"&gt; can contain
-                           &lt;div type="envelope"&gt; and &lt;div type="letter"&gt;; &lt;div type="letter"&gt; can include &lt;div
-                           type="letter_message"&gt; and &lt;div type="poem"&gt;; &lt;div type="letter_message"&gt; can contain
-                           &lt;opener&gt; and &lt;closer&gt; containers; &lt;opener&gt; groups together dateline and salutation
-                           information from the start of the correspondence item; &lt;closer&gt; groups together salutation
-                           and signature information from the end of the correspondence item; &lt;div type="poem"&gt;
-                           can be further structured through the &lt;cb&gt; milestone element and can contain &lt;head&gt;
-                           and &lt;lg&gt; elements; &lt;lg&gt; nodes include &lt;space&gt; and &lt;l&gt; elements.</li>
+                           and semantically expressive TEI-conformant container structure is used. The most important
+                           structural elements are the following: &lt;div type="transcription"&gt; can contain &lt;div
+                           type="envelope"&gt; and &lt;div type="letter"&gt;; &lt;div type="letter"&gt; can include &lt;div type="letter_message"&gt;
+                           and &lt;div type="poem"&gt;; &lt;div type="letter_message"&gt; can contain &lt;opener&gt; and &lt;closer&gt;
+                           containers (in addition to &lt;p&gt;, which can be subdivided by means of &lt;seg&gt;); &lt;opener&gt;
+                           groups together dateline and salutation information from the start of the correspondence
+                           item; &lt;closer&gt; groups together salutation and signature information from the end of
+                           the correspondence item; &lt;div type="poem"&gt; can be further structured through the &lt;cb&gt;
+                           milestone element and can contain &lt;head&gt; and &lt;lg&gt; elements; &lt;lg&gt; nodes include &lt;space&gt;
+                           and &lt;l&gt; elements.</li>
                         
                         <li data-no="4.4">The vertical succession of text elements is represented; their horizontal arrangement
                            has so far been disregarded.</li>
@@ -387,7 +394,8 @@
                         <li data-no="9.1">All texts pertaining to the photograph documents are transcribed.</li>
                         
                         <li data-no="9.2">Persons depicted in the photographs or referred to in the accompanying texts are recorded
-                           in the &lt;particDesc&gt; section of the &lt;teiHeader&gt;.</li>
+                           in the &lt;particDesc&gt; section of the &lt;teiHeader&gt;. Photographers are recorded in the
+                           TEI &lt;author&gt; element.</li>
                         </ol>
                      </li>
                   </ol>
@@ -398,9 +406,9 @@
                      
                      <ol class="numbered">
                         
-                        <li data-no="10.1">Extra-textual entities (persons, places, organizations, literary works, and events)
-                           are marked up in XML by means of &lt;rs&gt; and can optionally be displayed on the website,
-                           where they are enriched with additional information and norm-data identifiers.</li>
+                        <li data-no="10.1">Extra-textual entities (persons, places, organizations, works, and events) are marked
+                           up in XML by means of &lt;rs&gt; and can optionally be displayed on the website, where that
+                           display is enriched with additional information and authority-file identifiers.</li>
                         
                         <li data-no="10.2">Editorial comments are marked up in XML within the &lt;interpGrp&gt; element of the &lt;teiHeader&gt;.
                            The respective elements within the textual data or metadata to which the editorial
@@ -413,7 +421,8 @@
                
                <ol class="numbered">
                   
-                  <li data-no="11">Language information is encoded in XML by means of the @xml:lang attribute (in development).</li>
+                  <li data-no="11">Language information is encoded in XML by means of the TEI &lt;foreign&gt; element and the
+                     @xml:lang attribute (in development).</li>
                   </ol>
                
                <ol class="numbered">
